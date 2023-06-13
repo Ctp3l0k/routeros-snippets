@@ -1,7 +1,11 @@
 # В данном случае для трех провайдеров.
+
 # Маршруты для локальной сети по хорошему не нужны, но у меня почему-то без них не работало.
-# Возможно, это из-за того, что я настроил неправильно и вместо "connection-state=new" в mangle нужно ставить "packet-mark=no-mark".
-# А еще тут же рекурсивные маршруты.
+# Возможно, это из-за того, что я настроил неправильно и вместо "connection-state=new"
+# в первых трех правилах нужно ставить "packet-mark=no-mark".
+# Жаль, что мне не на чем сейчас проверить, как оно будет работать
+
+# А еще тут же настроены рекурсивные маршруты.
 
 /ip firewall mangle
 add action=mark-connection chain=prerouting comment=\
@@ -47,8 +51,7 @@ add check-gateway=ping comment="For recursive WAN2" distance=1 dst-address=\
     9.9.9.9/32 gateway=555.555.555.555 scope=10
 add check-gateway=ping comment="For recursive WAN3" distance=1 dst-address=\
     8.8.8.8/32 gateway=666.666.666.666 scope=10
-# Да, вот это те самые лишние маршруты, которые не нужны, если mangle исправить.
-# Я бы их убрал и конфиг исправил, но мне не на чем сейчас проверять, как оно будет работать.
+# Следующие три маршрута - это те, которые не нужны, если mangle исправить.
 add comment="LAN for routed" distance=1 dst-address=192.168.88.0/24 gateway=\
     bridge1 routing-mark=WAN1
 add comment="LAN for routed" distance=1 dst-address=192.168.88.0/24 gateway=\
