@@ -31,12 +31,12 @@ add check-gateway=ping comment="WAN2 marked" distance=1 gateway=555.555.555.555 
     routing-mark=WAN2
 add check-gateway=ping comment="WAN3 marked" distance=1 gateway=666.666.666.666 \
     routing-mark=WAN3
-add check-gateway=ping comment="WAN1 recursive" distance=2 gateway=1.1.1.1
-add check-gateway=ping comment="WAN2 recursive" distance=1 gateway=9.9.9.9
-add check-gateway=ping comment="WAN3 recursive" distance=4 gateway=8.8.8.8
-add check-gateway=ping comment="WAN1 non-recursive" distance=5 gateway=\
+add check-gateway=ping comment="WAN1 recursive" distance=1 gateway=1.1.1.1
+add check-gateway=ping comment="WAN2 recursive" distance=2 gateway=9.9.9.9
+add check-gateway=ping comment="WAN3 recursive" distance=3 gateway=8.8.8.8
+add check-gateway=ping comment="WAN1 non-recursive" distance=4 gateway=\
     444.444.444.444
-add check-gateway=ping comment="WAN2 non-recusive" distance=7 gateway=\
+add check-gateway=ping comment="WAN2 non-recusive" distance=5 gateway=\
     555.555.555.555
 add check-gateway=ping comment="WAN3 non-recusive" distance=6 gateway=\
     666.666.666.666
